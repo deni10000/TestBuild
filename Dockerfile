@@ -23,6 +23,9 @@ RUN python3.10 -m pip install --no-cache-dir \
     --index-url https://download.pytorch.org/whl/cu130
 
 RUN python3.10 -m pip install --no-cache-dir \
+    "flash-attn>=2.7.0" --no-build-isolation
+
+RUN python3.10 -m pip install --no-cache-dir \
     "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git" \
     "bitsandbytes" \
     "accelerate" \
