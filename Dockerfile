@@ -23,7 +23,7 @@ RUN python3.10 -m pip install --no-cache-dir \
     --index-url https://download.pytorch.org/whl/cu130
 
 RUN python3.10 -m pip install --no-cache-dir \
-    "flash-attn>=2.7.0" --no-build-isolation
+    https://github.com/mjun0812/flash-attention-prebuild-wheels/releases/download/v0.0.0/flash_attn-2.8.3+cu130torch2.12-cp310-cp310-linux_x86_64.whl
 
 RUN python3.10 -m pip install --no-cache-dir \
     "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git" \
