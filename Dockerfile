@@ -27,6 +27,7 @@ RUN python3.10 -m pip install --no-cache-dir \
 
 RUN python3.10 -m pip install --no-cache-dir \
     "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git" \
+    "vllm" \
     "bitsandbytes" \
     "accelerate" \
     "peft" \
