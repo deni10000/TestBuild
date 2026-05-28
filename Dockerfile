@@ -13,6 +13,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     curl
 
+RUN apt-get update && apt-get install -y --no-install-recommends cuda-nvcc-13-0 && rm -rf /var/lib/apt/lists/*
+
 RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10
 RUN python3.10 -m pip install --no-cache-dir pip setuptools wheel
 
