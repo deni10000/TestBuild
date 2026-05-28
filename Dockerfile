@@ -5,6 +5,16 @@ FROM nvidia/cuda:13.0.0-runtime-ubuntu22.04
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y --no-install-recommends software-properties-common
 RUN add-apt-repository ppa:deadsnakes/ppa -y
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    cuda-nvcc-13-0 \
+    cuda-curand-dev-13-0 \
+    cuda-nvrtc-dev-13-0 \
+    cuda-cudart-dev-13-0 \
+    cuda-cccl-13-0 \
+    ninja-build \
+    && rm -rf /var/lib/apt/lists/*
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3.10 \
     python3.10-distutils \
@@ -12,8 +22,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     git \
     curl
-
-RUN apt-get update && apt-get install -y --no-install-recommends cuda-nvcc-13-0 && rm -rf /var/lib/apt/lists/*
 
 RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10
 RUN python3.10 -m pip install --no-cache-dir pip setuptools wheel
